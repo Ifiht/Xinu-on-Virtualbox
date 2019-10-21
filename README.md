@@ -95,5 +95,27 @@ deb http://archive.debian.org/debian/ squeeze-lts main
 
 ## Extras 
 ### Auto-Mount a Shared Folder
+1. Create a folder on your host to share, and select it as a shared folder in the VM settings of VBox.
+2. Login to develop-end, and create a folder with the same name.
+3. Execute `sudo nano /etc/fstab`, and APPEND the following line to the bottom:
+```
+<folder_name>     /home/xinu/<folder_name>  vboxsf  defaults        0       0
+```
+
 ### Avoid Typing Passwords for Login
+1. From develop-end, execute the command `ssh-keygen`.
+2. Use the defaults (just press enter) for all options unless you have a preference.
+3. From your main terminal (the one you will be ssh'ing into develop-end with) type `cat ~/.ssh/id_rsa.pub`. Save this output for later.
+4. Login to develop-end, and execute `ssh-keygen` again.
+4. Paste all your previously saved output into develop-end with `nano ~/.ssh/authorized_keys`, it should all fit as a SINGLE LINE.
+5. Realize you executed two step #4's.
+6. Now you should be able to login from the host to develop-end without typing passwords. Congrats!
+
 ### Avoid Typing Passwords for Sudo
+1. On develop-end, type `sudo visudo`
+2. Change edit the two lines within to match the below:
+```
+xinu    ALL=(ALL) NOPASSWD:ALL
+%sudo ALL=(ALL) NOPASSWD:ALL
+```
+3. Now you can type "sudo" as xinu without any password prompts.
