@@ -1,5 +1,5 @@
 # **Xinu-on-Virtualbox**
-> *An updated version-controlled guide, based on official Purdue & Syracuse University documentation: [How-to-install_Xinu-on-VirtualBox](pdf/How-to-install_Xinu-on-VirtualBox.pdf)*
+> *An updated version-controlled guide, based on official Purdue & Syracuse University documentation: [How-to-install_Xinu-on-VirtualBox](pdf/How-to-install_Xinu-on-VirtualBox.pdf), [The_Xinu_Page](https://xinu.cs.purdue.edu/#code)*
 
 ## **Virtual Box**
 1. Install the latest 5.2.X branch of Virtual Box on your OS 
@@ -8,7 +8,7 @@
 
 2. Download and extract the tarball of the two virtual machines you'll need to develop Xinu: [xinu-vbox-appliances](ftp://ftp.cs.purdue.edu/pub/comer/private/Xinu/xinu-vbox-appliances.tar.gz)
 
->  *Xinu runs in this configuration on the back-end machine built to boot from a private network hosted on the develop-end machine, using the pre-build image that is also hosted on develop-end and made available via sftp*
+>  *Xinu runs in this configuration on the back-end machine built to boot from a private network hosted on the develop-end machine, using the pre-build image that is also hosted on develop-end and made available via tftp*
 
 3. Import both VM's into VBox, using default settings and changing no options.
 
@@ -36,7 +36,7 @@ Enabled:     Yes
 ### **Virtual Machine Interfaces**
 1. First off, make sure both VM's are powered off, then open the settings for develop-end
 
-2. Under the settings, go to "Network". There should be one adapter already configured. DO NOT CHANGE IT!!! Your sftp server and back-end rely on the predefined settings and MAC address to function. Choose an unused network adapter and enable it.
+2. Under the settings, go to "Network". There should be one adapter already configured. DO NOT CHANGE IT!!! Your tftp server and back-end rely on the predefined settings and MAC address to function. Choose an unused network adapter and enable it.
 
 3. Under the now clickable adapter settings, choose "Attached to: NAT Network", and " Name: NatNetwork" from the drop-downs.
 
@@ -91,7 +91,7 @@ deb http://archive.debian.org/debian/ squeeze-lts main
 
 5. You can now execute the standard debian hello-world commands: `sudo apt-get update && sudo apt-get upgrade`
 
-6. LAST STEP!!! Execute `sudo apt-get install ssh`, then upon successful completion `sudo services ssh start`. You're now ssh capable, and can connect with `ssh xinu@127.0.0.1 -p 2022`. Huzzah!
+6. LAST STEP!!! Execute `sudo apt-get install ssh`, then upon successful completion `sudo service ssh start`. You're now ssh capable, and can connect with `ssh xinu@127.0.0.1 -p 2022`. Huzzah!
 
 ## **Extras**
 ### **Auto-Mount a Shared Folder**
