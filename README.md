@@ -6,7 +6,7 @@
   
 >  *Compatability issues including 32-bit support and ongoing development with 6.X versions make the results less stable. This guide tested using VBox version 5.2.32r132073*
 
-2. Download and extract the tarball of the two virtual machines you'll need to develop Xinu: [xinu-vbox-appliances](ftp://ftp.cs.purdue.edu/pub/comer/private/Xinu/xinu-vbox-appliances.tar.gz)
+2. Download and extract the tarball of the two virtual machines you'll need to develop Xinu: ftp://ftp.cs.purdue.edu/pub/comer/private/Xinu/xinu-vbox-appliances.tar.gz
 
 >  *Xinu runs in this configuration on the back-end machine built to boot from a private network hosted on the develop-end machine, using the pre-build image that is also hosted on develop-end and made available via tftp*
 
@@ -18,7 +18,7 @@
 ### **Virtual Networks**
 1. To configure SSH we need to configure some networks. Open up a command line on YOUR host machine (the one VBox is installed on), and type `VBoxManage natnetwork add --netname NatNetwork2 --network 192.168.56.0/24 --enable --port-forward-4 "ssh:tcp:[]:2022:[192.168.56.5]:22"`
 
-2. Next type "VBoxManage natnetwork list" to confirm your results. You should see the following:
+2. Next type `VBoxManage natnetwork list` to confirm your results. You should see the following:
 ```
 NAT Networks:
 
